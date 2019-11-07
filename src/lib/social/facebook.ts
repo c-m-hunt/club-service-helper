@@ -14,11 +14,11 @@ class Facebook {
     FB.options(options);
   }
 
-  public postToWall = async (status: string) => {
+  public postToWall = async (message: string) => {
     FB.api(
       `/${this.pageId}/feed`,
       "POST",
-      { status },
+      { message },
       (response) => {
         console.log(response);
       },
