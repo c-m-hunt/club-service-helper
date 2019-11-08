@@ -16,6 +16,8 @@
     "typescript": "^3.3.3"
   },
   "dependencies": {
+    "@slack/events-api": "^2.3.0",
+    "@slack/web-api": "^5.4.0",
     "@types/twit": "^2.2.23",
     "fb": "^2.0.0",
     "node-fetch": "^2.6.0",
