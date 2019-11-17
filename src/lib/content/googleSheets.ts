@@ -1,4 +1,4 @@
-import GoogleSpreadsheet, { spreadsheet, worksheet } from "google-spreadsheet";
+import GoogleSpreadsheet, { info, spreadsheet, SpreadsheetRow, worksheet } from "google-spreadsheet";
 import Util from "util";
 
 interface IGoogleSheetsOptions {
@@ -8,7 +8,7 @@ interface IGoogleSheetsOptions {
 class GoogleSheets {
   private doc: spreadsheet;
   private sheet: worksheet;
-  private info: any;
+  private info: info;
   constructor(options: IGoogleSheetsOptions) {
     this.doc = new GoogleSpreadsheet(options.sheetId);
   }
@@ -25,7 +25,7 @@ class GoogleSheets {
     return await getInfo();
   }
 
-  public getWorksheet = async (name: string) => {
+  public getWorksheet = async (name: string): Promise<SpreadsheetRow[]> => {
     this.sheet = await this.loadWorksheet(name);
     const getRows = Util.promisify(this.sheet.getRows);
     return await getRows();

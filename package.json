@@ -22,6 +22,7 @@
     "fb": "^2.0.0",
     "google-spreadsheet": "^2.0.8",
     "googleapis": "^45.0.0",
+    "handlebars": "^4.5.2",
     "node-fetch": "^2.6.0",
     "twit": "^2.2.11"
   }
