@@ -5,19 +5,21 @@ import SelectionSpreadsheet from "./selectionSpreadsheet";
 
 class CommandFailureError extends Error {}
 
-const getCommand = (text: string) => {
+export const getCommand = (text: string) => {
   const parts = text.split(" ");
   if (parts.length === 0) {
     throw new CommandFailureError("No command has been supplied");
   }
-  return { command: parts[0], args: parts.shift() };
+  const command = parts.shift();
+  const arg = parts.join(" ");
+  return { command, arg };
 };
 
 export const parseRequest = (req: Request, res: Response): Response => {
   const replyTo = req.body.response_url;
   const text = req.body.text;
-  const { command, args } = getCommand(req.body.text);
-  logger.debug(`Calling command ${command} with arguments ${args}`);
+  const { command, arg } = getCommand(req.body.text);
+  logger.debug(`Calling command ${command} with arguments ${arg}`);
   switch (command) {
     case "docs":
       return res.send(docs);

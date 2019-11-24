@@ -8,11 +8,12 @@
     "watch": "nodemon src/app.ts",
     "start:slack": "ts-node src/slack.ts",
     "watch:slack": "nodemon src/slack.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "jest": "^24.9.0",
     "ts-node": "^8.4.1",
     "tslint": "^5.12.1",
     "typescript": "^3.3.3"
@@ -20,6 +21,7 @@
   "dependencies": {
     "@slack/events-api": "^2.3.0",
     "@slack/web-api": "^5.4.0",
+    "@types/jest": "^24.0.23",
     "@types/twit": "^2.2.23",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
@@ -29,6 +31,7 @@
     "handlebars": "^4.5.2",
     "morgan": "^1.9.1",
     "node-fetch": "^2.6.0",
+    "ts-jest": "^24.2.0",
     "twit": "^2.2.11",
     "winston": "^3.2.1"
   }
