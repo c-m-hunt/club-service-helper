@@ -3,24 +3,34 @@ import fetch from "node-fetch";
 import logger from "./../logger";
 import SelectionSpreadsheet from "./selectionSpreadsheet";
 
-class CommandFailureError extends Error {}
+export class CommandFailureError extends Error {}
 
-const getCommand = (text: string) => {
+export const commands = {
+  docs: "docs",
+  selection: "selection",
+};
+
+export const getCommand = (text: string) => {
   const parts = text.split(" ");
-  if (parts.length === 0) {
+  const command = parts.shift();
+  if (command.trim() === "") {
     throw new CommandFailureError("No command has been supplied");
   }
-  return { command: parts[0], args: parts.shift() };
+  if (!Object.values(commands).includes(command)) {
+    throw new CommandFailureError(`Command ${command} is not valid`);
+  }
+  const arg = parts.join(" ");
+  return { command, arg };
 };
 
 export const parseRequest = (req: Request, res: Response): Response => {
   const replyTo = req.body.response_url;
   const text = req.body.text;
-  const { command, args } = getCommand(req.body.text);
-  logger.debug(`Calling command ${command} with arguments ${args}`);
+  const { command, arg } = getCommand(req.body.text);
+  logger.debug(`Calling command ${command} with arguments ${arg}`);
   switch (command) {
     case "docs":
-      return res.send(docs);
+      return res.send(getDocs);
     case "selection":
       sendSelection(replyTo);
       return res.send();
@@ -67,7 +77,7 @@ const getError = (msg: string): object => ({
   ],
 });
 
-const docs = {
+const getDocs = {
   blocks: [
       {
           type: "section",
