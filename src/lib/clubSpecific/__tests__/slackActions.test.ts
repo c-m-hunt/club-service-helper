@@ -10,6 +10,12 @@ describe("Slack actions", () => {
     expect(arg).toBe("something");
   });
 
+  it("gets command and long argument", () => {
+    const {command, arg} = getCommand("docs something that is a long piece of text");
+    expect(command).toBe("docs");
+    expect(arg).toBe("something that is a long piece of text");
+  });
+
   it("throws an exception when no command is passed", () => {
     expect(() => { getCommand(""); }).toThrow(CommandFailureError);
   });
