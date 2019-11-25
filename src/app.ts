@@ -10,29 +10,28 @@ const c = new Contentful(config.clientConfig.contentful);
 const f = new Facebook(config.clientConfig.facebook);
 const s = new Slack(config.clientConfig.slack);
 const gs = new GoogleSheets({ sheetId: "18N1OmS5kFPkVBmYZuHa8Q5mBwpOCKyPfCCH3aKN8MS0" });
-const message = `Reminder: Club EGM at The Pavilion - 7:30pm on Monday, 18th November. All members should have received details by email. Any problems - DM us.`;
+const message = "Reminder: Club EGM at The Pavilion - 7:30pm on Monday, 18th November. All members should have received details by email. Any problems - DM us.";
 
-// import Handlebars from "handlebars";
-// const template = Handlebars.compile("Handlebars <b>{{doesWhat}}</b>");
+// Import Handlebars from "handlebars";
+// Const template = Handlebars.compile("Handlebars <b>{{doesWhat}}</b>");
 // // execute the compiled template and print the output to the console
-// console.log(template({ doesWhat: "rocks!" }));
+// Console.log(template({ doesWhat: "rocks!" }));
 
+// T.updateStatus(message);
+// F.postToWall(message);
 
-// t.updateStatus(message);
-// f.postToWall(message);
-
-// c.get100ClubResults()
+// C.get100ClubResults()
 //   .then(results => {
-//     console.log(results);
+//     Console.log(results);
 //   });
 
-// const s = new Slack(config.clientConfig.slack);
-// s.postMessage(message);
+// Const s = new Slack(config.clientConfig.slack);
+// S.postMessage(message);
 
-// gs.auth()
+// Gs.auth()
 //   .then(async () => {
-//     const sheet = await gs.getWorksheet("Members");
-//     console.log(sheet);
+//     Const sheet = await gs.getWorksheet("Members");
+//     Console.log(sheet);
 //   });
 
 import SelectionSpreadsheet from "./lib/clubSpecific/selectionSpreadsheet";
