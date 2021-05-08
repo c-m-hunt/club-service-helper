@@ -39,7 +39,7 @@
     "fb": "^2.0.0",
     "google-spreadsheet": "^2.0.8",
     "googleapis": "^45.0.0",
-    "handlebars": "^4.5.2",
+    "handlebars": "^4.7.7",
     "morgan": "^1.9.1",
     "node-fetch": "^2.6.0",
     "twit": "^2.2.11",
