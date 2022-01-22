@@ -41,7 +41,7 @@
     "googleapis": "^45.0.0",
     "handlebars": "^4.5.2",
     "morgan": "^1.9.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^3.1.1",
     "twit": "^2.2.11",
     "winston": "^3.2.1"
   }
