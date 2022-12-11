@@ -35,7 +35,7 @@
     "@slack/events-api": "^2.3.0",
     "@slack/web-api": "^5.4.0",
     "@types/twit": "^2.2.23",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "fb": "^2.0.0",
     "google-spreadsheet": "^2.0.8",
     "googleapis": "^45.0.0",
